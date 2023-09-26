@@ -1,9 +1,10 @@
 import random 
+import pandas as pd
 
-numberlist = [1111, 2222, 3333, 4444]
-newpasslist = []
+oldpasscodes = pd.read_csv(filepath)
 
 def uniquePass(numberlist, numpass):
+    newpasslist = []
     while (numpass > 0):
         newpass = random.randint(1000, 9999)
         if newpass in numberlist: 
@@ -13,4 +14,6 @@ def uniquePass(numberlist, numpass):
     for password in newpasslist: 
         print(password)
 
-uniquePass(numberlist, 10)
+def main(filepath):
+    oldpasscodes = pd.read_csv(filepath)
+    return oldpasscodes
